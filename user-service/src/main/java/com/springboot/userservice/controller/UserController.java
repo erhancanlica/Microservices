@@ -1,12 +1,14 @@
 package com.springboot.userservice.controller;
 
-import com.springboot.userservice.data.UserEntity;
 import com.springboot.userservice.service.UserService;
 import com.springboot.userservice.shared.UserDto;
 import com.springboot.userservice.ui.model.CreateUserRequestModel;
+import com.springboot.userservice.ui.model.CreateUserResponseModel;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.core.env.Environment;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -29,11 +31,12 @@ public class UserController {
     }
 
     @PostMapping
-    public String createUser(@Valid @RequestBody CreateUserRequestModel userDetails) {
+    public ResponseEntity<CreateUserResponseModel> createUser(@Valid @RequestBody CreateUserRequestModel userDetails) {
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         UserDto userDto = modelMapper.map(userDetails, UserDto.class);
-        userService.createUser(userDto);
-        return "Create user method is called";
+        UserDto createdUser = userService.createUser(userDto);
+        CreateUserResponseModel responseModel = modelMapper.map(createdUser, CreateUserResponseModel.class);
+        return ResponseEntity.status(HttpStatus.CREATED).body(responseModel);
     }
 }
