@@ -2,7 +2,7 @@ package com.springboot.userservice.shared;
 
 import java.io.Serializable;
 
-public class userDto implements Serializable {
+public class UserDto implements Serializable {
     private String userId;
     private String encryptedPassword;
     private String firstName;

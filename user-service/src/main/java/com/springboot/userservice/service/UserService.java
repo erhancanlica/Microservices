@@ -1,7 +1,7 @@
 package com.springboot.userservice.service;
 
-import com.springboot.userservice.shared.userDto;
+import com.springboot.userservice.shared.UserDto;
 
 public interface UserService {
-    userDto createUser(userDto userDetails);
+    UserDto createUser(UserDto userDetails);
 }
