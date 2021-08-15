@@ -31,3 +31,7 @@ eureka:
 
 gateway:
     ip: 192.168.1.38
+
+token:
+  expiration_time: 864000000 // 10 days
+  secret: fg3gks23412aqqeqw123222q2az231psmhj

@@ -16,8 +16,8 @@ import javax.servlet.Filter;
 public class WebSecurity extends WebSecurityConfigurerAdapter {
 
     private final Environment environment;
-    private UserService userService;
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final UserService userService;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public WebSecurity(Environment environment, UserService userService, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.environment = environment;
@@ -41,8 +41,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     }
 
     private Filter getAuthenticationFilter() throws Exception {
-        AuthenticationFilter authenticationFilter = new AuthenticationFilter();
-        authenticationFilter.setAuthenticationManager(authenticationManager());
+        AuthenticationFilter authenticationFilter = new AuthenticationFilter(userService, environment, authenticationManager());
         return authenticationFilter;
     }
 }

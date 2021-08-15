@@ -5,7 +5,6 @@ import com.springboot.userservice.data.UserRepository;
 import com.springboot.userservice.shared.UserDto;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -21,7 +20,6 @@ public class UserServiceImpl implements UserService {
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final UserRepository userRepository;
 
-    @Autowired
     public UserServiceImpl(BCryptPasswordEncoder bCryptPasswordEncoder, UserRepository userRepository) {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
         this.userRepository = userRepository;
@@ -37,6 +35,13 @@ public class UserServiceImpl implements UserService {
         userRepository.save(userEntity);
         UserDto returnValue = modelMapper.map(userEntity, UserDto.class);
         return returnValue;
+    }
+
+    @Override
+    public UserDto getUserDetailsByEmail(String email) {
+        UserEntity userEntity =  userRepository.findByEmail(email);
+        if (userEntity == null) throw new UsernameNotFoundException(email);
+        return new ModelMapper().map(userEntity, UserDto.class);
     }
 
     @Override
