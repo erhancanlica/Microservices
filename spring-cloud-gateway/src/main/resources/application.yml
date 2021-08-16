@@ -26,38 +26,38 @@ spring:
             - AuthorizationHeaderFilter
 
         - id: user-service
-            uri: lb://user-service
-            predicates:
-              - Path=/user-service/users
-              - Method=POST
-            filters:
-              - RemoveRequestHeader=Cookie
-              - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+          uri: lb://user-service
+          predicates:
+            - Path=/user-service/users
+            - Method=POST
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
 
         - id: user-service-login
-            uri: lb://user-service
-            predicates:
-              - Path=/user-service/users/login
-              - Method=POST
-            filters:
-              - RemoveRequestHeader=Cookie
-              - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+          uri: lb://user-service
+          predicates:
+            - Path=/user-service/users/login
+            - Method=POST
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
 
         - id: user-service-get-update-delete
-            uri: lb://user-service
-            predicates:
-              - Path=/user-service/users/**
-              - Method=GET,PUT,DELETE
-              - Header=Authorization, Bearer (.*)
-            filters:
-              - RemoveRequestHeader=Cookie
-              - RewritePath=/user-service/(?<segment>.*), /$\{segment
-              - AuthorizationHeaderFilter
-              -
-#      discovery:
-#        locator:
-#          enabled: true
-#          lower-case-service-id: true
+          uri: lb://user-service
+          predicates:
+            - Path=/user-service/users/**
+            - Method=GET,PUT,DELETE
+            - Header=Authorization, Bearer (.*)
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/user-service/(?<segment>.*), /$\{segment
+            - AuthorizationHeaderFilter
+
+              #      discovery:
+              #        locator:
+              #          enabled: true
+              #          lower-case-service-id: true
 
 token:
-  secret: j23kak2jasdn23aj3u231kmcmnv23asd2131dc12
+  secret: fg3gks23412aqqeqw123222q2az231psmhj

@@ -6,7 +6,6 @@ import com.springboot.userservice.shared.UserDto;
 import com.springboot.userservice.ui.model.LoginRequestModel;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import org.aspectj.weaver.patterns.IToken;
 import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
