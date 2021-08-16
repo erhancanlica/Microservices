@@ -1,6 +1,12 @@
 server:
   port: 8082
 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8010/eureka
+
+
 spring:
   application:
     name: api-gateway
@@ -17,13 +23,41 @@ spring:
           filters:
             - RemoveRequestHeader=Cookie
             - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+            - AuthorizationHeaderFilter
+
+        - id: user-service
+            uri: lb://user-service
+            predicates:
+              - Path=/user-service/users
+              - Method=POST
+            filters:
+              - RemoveRequestHeader=Cookie
+              - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+
+        - id: user-service-login
+            uri: lb://user-service
+            predicates:
+              - Path=/user-service/users/login
+              - Method=POST
+            filters:
+              - RemoveRequestHeader=Cookie
+              - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+
+        - id: user-service-get-update-delete
+            uri: lb://user-service
+            predicates:
+              - Path=/user-service/users/**
+              - Method=GET,PUT,DELETE
+              - Header=Authorization, Bearer (.*)
+            filters:
+              - RemoveRequestHeader=Cookie
+              - RewritePath=/user-service/(?<segment>.*), /$\{segment
+              - AuthorizationHeaderFilter
+              -
 #      discovery:
 #        locator:
 #          enabled: true
 #          lower-case-service-id: true
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8010/eureka
 
-
+token:
+  secret: j23kak2jasdn23aj3u231kmcmnv23asd2131dc12
