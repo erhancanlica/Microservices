@@ -1,0 +1,20 @@
+server:
+  port: 8012
+
+spring:
+  application:
+    name: config-server
+
+  profiles:
+    active: git
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/erhancnlc/micro-service-configuration
+          username: erhancnlc
+          password: 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
+          skip-ssl-validation: true
+          default-label: main
+          clone-on-start: true

@@ -3,8 +3,6 @@
 	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 ã
 [user-service/src/main/java/com/springboot/userservice/ui/model/CreateUserResponseModel.java,2/0/20f8dde7ab1cc985b6e7f1d6f886c241ee242307
-Å
-Quser-service/src/main/java/com/springboot/userservice/UserServiceApplication.java,9/8/98979e7598b33b181d3522a648f2926c5091014b
 ä
 Zuser-service/src/main/java/com/springboot/userservice/ui/model/CreateUserRequestModel.java,1/1/117951d8e0133092574975c79c2db9715514cc22
 Ö
@@ -21,3 +19,15 @@ Nuser-service/src/main/java/com/springboot/userservice/service/UserService.java
 Ruser-service/src/main/java/com/springboot/userservice/service/UserServiceImpl.java,9/6/967a72df9efa1a052778a61bd9939df87e7d916d
 
 Ouser-service/src/main/java/com/springboot/userservice/security/WebSecurity.java,8/a/8afd271373d3ece4731e950023e002b1c375b35c
+L
+spring-cloud-gateway/pom.xml,5/a/5a24e27b18041cc7d4ea5830f550aa7b2031dcb8
+à
+Xspring-cloud-gateway/src/main/java/com/springboot/gateway/AuthorizationHeaderFilter.java,2/3/23f944ea37bdeba40dcf57802cfd500c5482b522
+Ñ
+Tuser-service/src/main/java/com/springboot/userservice/controller/UserController.java,6/a/6ab4e4b2e0c3c2d30d175c65d00fce0d2acc1579
+â
+Yspring-cloud-gateway/src/main/java/com/springboot/gateway/GlobalFiltersConfiguration.java,9/5/95d3c4846631c4e60f63e05829ddd0d6c5ecdaf7
+z
+Jspring-cloud-gateway/src/main/java/com/springboot/gateway/MyPreFilter.java,5/6/5618b97e2014599603f729d76eaa7c6b3dfae22f
+{
+Kspring-cloud-gateway/src/main/java/com/springboot/gateway/MyPostFilter.java,0/1/01a42f4f3ef7dd63feb5828edd196681228efb17
