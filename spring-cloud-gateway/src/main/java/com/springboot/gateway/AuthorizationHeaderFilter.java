@@ -26,7 +26,7 @@ public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<Auth
     }
 
     public static class Config {
-        //
+
     }
 
     @Override
@@ -52,7 +52,7 @@ public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<Auth
     }
 
     private boolean isJwtValid(String jwt) {
-         boolean returnValue = true;
+        boolean returnValue = true;
         String subject = null;
         try {
             subject = Jwts.parser()

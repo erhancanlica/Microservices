@@ -33,8 +33,7 @@ public class UserServiceImpl implements UserService {
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         UserEntity userEntity = modelMapper.map(userDetails, UserEntity.class);
         userRepository.save(userEntity);
-        UserDto returnValue = modelMapper.map(userEntity, UserDto.class);
-        return returnValue;
+        return modelMapper.map(userEntity, UserDto.class);
     }
 
     @Override

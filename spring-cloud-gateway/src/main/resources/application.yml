@@ -6,10 +6,15 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8010/eureka
 
-
 spring:
   application:
     name: api-gateway
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
   cloud:
     gateway:
@@ -54,10 +59,5 @@ spring:
             - RewritePath=/user-service/(?<segment>.*), /$\{segment
             - AuthorizationHeaderFilter
 
-              #      discovery:
-              #        locator:
-              #          enabled: true
-              #          lower-case-service-id: true
-
 token:
-  secret: fg3gks23412aqqeqw123222q2az231psmhj
+  secret: fg3gks23412aqqeqw123222q2az23100000

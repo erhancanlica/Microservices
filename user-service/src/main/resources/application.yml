@@ -14,13 +14,21 @@ spring:
       enabled: true
       settings:
         web-allow-others: true
+
   datasource:
     username: sa
     password: 1234
     url: jdbc:h2:mem:testdb
     driver-class-name: org.h2.Driver
+
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
 eureka:
   client:
@@ -28,3 +36,14 @@ eureka:
       defaultZone: http://localhost:8010/eureka
   instance:
     instance-id: ${spring.application.name}:${spring.aplication.instance_id:${random.value}}
+
+gateway:
+  ip: 192.168.1.38
+
+token:
+  expiration_time: 864000000
+  secret: fg3gks23412aqqeqw123222q2az231psmhj
+
+login:
+  url:
+    path: /users/login

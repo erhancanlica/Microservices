@@ -5,16 +5,24 @@ spring:
   application:
     name: config-server
 
-  profiles:
-    active: git
-
   cloud:
     config:
       server:
         git:
           uri: https://github.com/erhancnlc/micro-service-configuration
           username: erhancnlc
-          password: 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
-          skip-ssl-validation: true
-          default-label: main
+          password: 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
           clone-on-start: true
+          default-label: main
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: busrefresh
