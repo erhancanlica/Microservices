@@ -14,12 +14,12 @@ spring:
         git:
           uri: https://github.com/erhancnlc/micro-service-configuration
           username: erhancnlc
-          password: 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
+          password: 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
           clone-on-start: true
           default-label: main
 
         native:
-          search-locations: file://${user.home}/dev
+          search-locations: file://dev
 
   rabbitmq:
     host: localhost

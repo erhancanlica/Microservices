@@ -14,7 +14,7 @@ spring:
     host: localhost
     port: 5672
     username: guest
-    password: guest
+    password: 2375
 
   cloud:
     gateway:
