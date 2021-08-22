@@ -19,7 +19,7 @@ spring:
           default-label: main
 
         native:
-          search-locations: file://dev
+          search-locations: file:///dev
 
   rabbitmq:
     host: localhost
