@@ -61,3 +61,9 @@ spring:
 
 token:
   secret: fg3gks23412aqqeqw123222q2az23100000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: beans, health, routes, httptrace

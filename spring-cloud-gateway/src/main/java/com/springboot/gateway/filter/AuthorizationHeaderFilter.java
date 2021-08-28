@@ -1,4 +1,4 @@
-package com.springboot.gateway;
+package com.springboot.gateway.filter;
 
 import io.jsonwebtoken.Jwts;
 import org.springframework.beans.factory.annotation.Autowired;

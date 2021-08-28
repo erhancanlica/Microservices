@@ -6,7 +6,7 @@ spring:
     name: config-server
 
   profiles:
-    active: native
+    active: default
 
   cloud:
     config:
@@ -14,7 +14,7 @@ spring:
         git:
           uri: https://github.com/erhancnlc/micro-service-configuration
           username: erhancnlc
-          password: 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
+          password: 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
           clone-on-start: true
           default-label: main
 
